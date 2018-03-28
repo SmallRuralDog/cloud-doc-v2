@@ -14,6 +14,4 @@
 - PC端文档中心
 - 文章模块
 
-新版UI将跟随潮流，使用卡片式布局，先放个图
-
-![](https://github.com/SmallRuralDog/cloud-doc-v2/blob/master/WechatIMG5.jpeg)
+新版UI将跟随潮流，使用卡片式布局
