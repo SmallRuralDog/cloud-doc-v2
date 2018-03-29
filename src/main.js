@@ -25,18 +25,23 @@ export default {
       "backgroundColor": "#ffffff",
       "color": "#999999",
       //borderStyle:"white",
-      selectedColor: "#1a82d2",
+      selectedColor: "#333333",
       "list": [
         {
           "pagePath": "pages/index/main",
           "text": "首页",
-          "iconPath": "static/images/house-no.png",
-          "selectedIconPath": "static/images/house-yes.png"
+          "iconPath": "static/images/home-no.png",
+          "selectedIconPath": "static/images/home-yes.png"
+        }, {
+          "pagePath": "pages/member/index/main",
+          "text": "档库",
+          "iconPath": "static/images/docs-no.png",
+          "selectedIconPath": "static/images/docs-yes.png"
         }, {
           "pagePath": "pages/member/index/main",
           "text": "我的",
-          "iconPath": "static/images/tabbar-home.png",
-          "selectedIconPath": "static/images/tabbar-home.png"
+          "iconPath": "static/images/user-no.png",
+          "selectedIconPath": "static/images/user-yes.png"
         }
       ]
     }
