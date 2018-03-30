@@ -1,7 +1,7 @@
 <template>
     <div class="page-view">
         <div class="header">
-            <div class="user-info">
+            <a href="/pages/member/login/main" class="user-info">
                 <div class="avatar">
                     <img src="http://imgavater.ui.cn/avatar/6/0/3/6/356306.png?imageMogr2/auto-orient/crop/!496x496a0a1/thumbnail/148x148" />
                 </div>
@@ -12,7 +12,7 @@
                 <div class="right">
                     <i class="iconfont icon-moreinfo-copy"></i>
                 </div>
-            </div>
+            </a>
             <div class="grid-list">
                 <div class="grid-item">
                     <p class="number">36</p>
