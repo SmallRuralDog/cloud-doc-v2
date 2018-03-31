@@ -3,7 +3,7 @@ const TOKEN_NAME = 'user-token'
 const USER_NAME = 'user-data'
 const CODE_NAME = 'user-code'
 export default {
-    get_code : function () {
+    get_code() {
         return new Promise((resolve, reject) => {
             wx.checkSession({
                 success: () => {
@@ -20,7 +20,7 @@ export default {
 
         })
     },
-    wx_login : function () {
+    wx_login() {
         return new Promise((resolve, reject) => {
             wx.login({
                 success: (res) => {
@@ -34,10 +34,10 @@ export default {
             })
         })
     },
-    set_code : function (code) {
+    set_code(code) {
         wx.setStorageSync(CODE_NAME, code)
     },
-    login : function (iv, encryptedData) {
+    login(iv, encryptedData) {
         return new Promise((resolve, reject) => {
             this
                 .get_code()
@@ -64,7 +64,7 @@ export default {
                 })
         })
     },
-    bind_login : function (id, iv, encryptedData) {
+    bind_login(id, iv, encryptedData) {
         return new Promise((resolve, reject) => {
             this
                 .get_code()
@@ -92,10 +92,15 @@ export default {
                 })
         })
     },
-    set_token : function (token) {
+    login_out() {
+        wx.removeStorageSync(TOKEN_NAME)
+        wx.removeStorageSync(USER_NAME)
+        return true
+    },
+    set_token(token) {
         wx.setStorageSync(TOKEN_NAME, token)
     },
-    get_token : function () {
+    get_token() {
         try {
             var value = wx.getStorageSync(TOKEN_NAME)
             if (value) {
@@ -105,10 +110,10 @@ export default {
             return false
         }
     },
-    set_user : function (data) {
+    set_user(data) {
         wx.setStorageSync(USER_NAME, data)
     },
-    get_user : function () {
+    get_user() {
         try {
             var value = wx.getStorageSync(USER_NAME)
             if (value) {
@@ -117,5 +122,10 @@ export default {
         } catch (e) {
             return false
         }
+    },
+    is_login() {
+        return this.get_token()
+            ? true
+            : false
     }
 }

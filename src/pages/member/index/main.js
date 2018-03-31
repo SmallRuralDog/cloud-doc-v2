@@ -9,6 +9,8 @@ export default {
         backgroundColorTop:"#1a82d2",
         backgroundColorBottom:"#ffffff",
         navigationBarBackgroundColor:"#1a82d2",
-        navigationBarTextStyle:"white"
+        navigationBarTextStyle:"white",
+        enablePullDownRefresh:true,
+        backgroundTextStyle:"light"
     }
 }

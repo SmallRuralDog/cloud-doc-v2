@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import user from '../../../utils/user'
 Vue.use(Vuex)
-
 const store = new Vuex.Store({
     state: {
-        user: {},
-        token: false
+        user: user.get_user(),
+        token: user.get_token()
     },
     mutations: {
         set_user: (state, data) => {

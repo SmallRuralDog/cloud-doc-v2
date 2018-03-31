@@ -14,8 +14,8 @@
     </div>
 </template>
 <script>
-import user from "../../../utils/user";
-import http from "../../../utils/http";
+import { http, user, toast } from "../../../utils/index";
+import store from "./store";
 export default {
   data() {
     return {
@@ -42,10 +42,11 @@ export default {
               this.bind_id = res.data.id;
             } else {
               //登录成功
-              this.login_ok()
+              this.login_ok(res.data.token, res.data.user);
             }
           })
           .catch(err => {
+            console.log("登录失败");
             this.loading = false;
           });
       }
@@ -59,15 +60,18 @@ export default {
           .then(res => {
             this.loading = false;
             //登录成功
-            this.login_ok()
+            this.login_ok(res.data.token, res.data.user);
           })
           .catch(err => {
             this.loading = false;
           });
       }
     },
-    login_ok(){
-        wx.navigateBack()
+    login_ok(token, user) {
+      store.commit("set_token", token);
+      store.commit("set_user", user);
+      toast.showToast('登录成功');
+      wx.navigateBack();
     }
   }
 };
