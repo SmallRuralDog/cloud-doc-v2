@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="from">
+        <div class="from" v-if="false">
             <div class="from-item">
                 <div class="label">名称</div>
                 <div class="input">
@@ -22,6 +22,7 @@
                 </div>
             </div>
         </div>
+        <web-view src="http://localhost:8081/#/"></web-view>
     </div>
 </template>
 <script>

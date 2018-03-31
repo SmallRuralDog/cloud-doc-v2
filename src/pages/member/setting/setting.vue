@@ -4,7 +4,7 @@
             <textarea :value="intro" @input="input" class="intro-input" placeholder="填写你的个性简介，15字以内" />
         </div>
         <div class="pd-15">
-            <button class="save-btn" :loading="loading" :disabled="!disabled" @tap="save">保存</button>
+            <button class="save-btn" :loading="loading" :disabled="!disabled || loading" @tap="save">保存</button>
         </div>
     </div>
 </template>
