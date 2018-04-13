@@ -1,17 +1,18 @@
 import user from './user'
 import toast from './toast'
-const HOST = 'http://192.168.10.54:88/api/'
+const HOST = 'https://yd.qzqkt.cn/api/'
+const WEB_HOST = 'http://192.168.10.54/r/'
 const SystemInfo = wx.getSystemInfoSync()
 const header = {
     'Accept': 'application/json',
     'content-type': 'application/json',
     'SystemInfo': JSON.stringify(SystemInfo)
 }
-if (user.get_token()) {
-    header.Authorization = 'Bearer ' + user.get_token()
-}
 export default {
     request(method, url, data) {
+        if (user.get_token()) {
+            header.Authorization = 'Bearer ' + user.get_token()
+        }
         return new Promise((resolve, reject) => {
             wx.request({
                 url: HOST + url,
@@ -30,7 +31,7 @@ export default {
                                 break;
                             case 401: //授权失败
                                 toast.showToast(res.data.message);
-                                user.login_out();
+                                //user.login_out();
                                 wx.navigateTo({url: '/pages/member/login/main'});
                                 break;
                             case 404: //路由异常抛出
@@ -61,5 +62,8 @@ export default {
     },
     get(url, data) {
         return this.request('GET', url, data)
+    },
+    web_host(){
+        return WEB_HOST;
     }
 }

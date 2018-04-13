@@ -1,16 +1,13 @@
 import Vue from 'vue'
-import App from './index'
-
+import App from './scan-login'
 const app = new Vue(App)
 app.$mount()
 export default {
     config : {
-        navigationBarTitleText: '',
+        navigationBarTitleText: 'PC端登录',
         backgroundColorTop:"#fff",
         backgroundColorBottom:"#fff",
         navigationBarBackgroundColor:"#fff",
-        navigationBarTextStyle:"black",
-        enablePullDownRefresh:true,
-        backgroundTextStyle:"dark"
+        navigationBarTextStyle:"black"
     }
 }

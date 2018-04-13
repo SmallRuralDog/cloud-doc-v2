@@ -127,5 +127,13 @@ export default {
         return this.get_token()
             ? true
             : false
+    },
+    check_login() {
+        if (!this.is_login()) {
+            wx.navigateTo({url: '/pages/member/login/main'});
+            return false;
+        } else {
+            return true
+        }
     }
 }

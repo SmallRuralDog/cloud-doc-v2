@@ -1,33 +1,42 @@
 <template>
-    <a class="item" href="/pages/details/doc/main">
-        <div class="flex-r">
-            <div class="cover">
-                <img src="https://climg.mukewang.com/5a405a7700010f1c06000338.jpg" />
-            </div>
-            <div class="right">
-                <div class="title">C++零基础入门 热门编程语言 编程入门 二级考试必备</div>
-                <div class="info">
-                    <span>职业路径</span>
-                    <span>3步／34课</span>
-                </div>
-            </div>
+  <a class="item" :href="'/pages/details/doc/main?id='+data.item.doc.id">
+    <div class="flex-r">
+      <div class="cover">
+        <img :src="data.item.doc.cover.small_url" />
+      </div>
+      <div class="right">
+        <div class="title">{{data.item.doc.title}}</div>
+        <div class="info">
+          <span>{{data.item.doc.category_name}}</span>
+          <span class="ml-5">{{data.item.doc.listened_count}}/{{data.item.doc.page_count}}章节</span>
         </div>
-        <div class="footer">
-            <div class="plan flex-r">
-                <div class="plen-view">
-                    <div class="pn"></div>
-                </div>
-                <div class="plen-title">已看60%</div>
-            </div>
-            <div class="l-info flex-r">
-                <span>上次查看：热门编程语言 编程入门</span>
-                <span>3小时前</span>
-            </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="plan flex-r">
+        <div class="plen-view">
+          <div class="pn" :style="{'width':pn+'%'}"></div>
         </div>
-    </a>
+        <div class="plen-title">已看{{pn}}%</div>
+      </div>
+      <div class="l-info flex-r">
+        <span>上次查看：{{data.item.title}}</span>
+        <span>{{data.time}}</span>
+      </div>
+    </div>
+  </a>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    data: Object
+  },
+  computed:{
+    pn(){
+      return parseInt(this.data.item.doc.listened_count/this.data.item.doc.page_count*100)
+    }
+  }
+};
 </script>
 <style lang="less">
 @import "../../../styles/common.less";

@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <div class="flex-r pd-15">
-            <textarea :value="intro" @input="input" class="intro-input" placeholder="填写你的个性简介，15字以内" />
+            <textarea  :value="intro" @input="input" class="intro-input" placeholder="填写你的个性简介，15字以内" />
         </div>
         <div class="pd-15">
             <button class="save-btn" :loading="loading" :disabled="!disabled || loading" @tap="save">保存</button>

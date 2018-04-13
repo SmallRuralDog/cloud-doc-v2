@@ -1,5 +1,5 @@
 {
-  "name": "yundang",
+  "name": "yundang-xcx",
   "version": "1.0.0",
   "description": "A Mpvue project",
   "author": "zhangwei <296404875@qq.com>",
@@ -62,5 +62,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "license": "MIT"
 }

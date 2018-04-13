@@ -9,58 +9,51 @@
           <div class="name">{{user_info.name}}</div>
           <div class="info">{{user_info.intro}}</div>
         </div>
-        <div class="right">
+        <div class="right" v-if="false">
           <i class="iconfont icon-moreinfo-copy"></i>
         </div>
       </a>
-      <div class="grid-list">
-        <div class="grid-item">
-          <p class="number">36</p>
-          <p class="name">文档</p>
+      <div class="grid-list" v-if="token">
+        <div class="grid-item" @click="grid_list_click('subscribe-doc')">
+          <p class="number">{{user.subscribe_doc || 0}}</p>
+          <p class="name">收藏</p>
         </div>
-        <div class="grid-item">
-          <p class="number">36</p>
-          <p class="name">文档</p>
+        <div v-if="false" class="grid-item" @click="grid_list_click('comment')">
+          <p class="number">{{user.comment_num || 0}}</p>
+          <p class="name">评论</p>
         </div>
-        <div class="grid-item">
-          <p class="number">36</p>
-          <p class="name">文档</p>
+        <div class="grid-item" @click="grid_list_click('follow')">
+          <p class="number">{{user.follow || 0}}</p>
+          <p class="name">关注</p>
         </div>
-        <div class="grid-item">
-          <p class="number">36</p>
-          <p class="name">文档</p>
-        </div>
-      </div>
-    </div>
-    <div class="created-view">
-      <div class="btn-view">
-        <a class="btn" :href="token?page_url.created_doc:page_url.login">创建</a>
-      </div>
-    </div>
-    <div class="cell-list">
-      <div class="cell bg-fff" hover-class="hover">
-        <div class="left">
-          <i class="iconfont icon-qianbao"></i>
-        </div>
-        <div class="body">钱包</div>
-        <div class="right">
-          <i class="iconfont icon-moreinfo-copy"></i>
+        <div class="grid-item" @click="grid_list_click('fans')">
+          <p class="number">{{user.fans || 0}}</p>
+          <p class="name">粉丝</p>
         </div>
       </div>
     </div>
+    <button @click="upload">测试</button>
+    <grid-menu :menu="menu"></grid-menu>
   </div>
 </template>
 <script>
 import store from "../login/store";
 import { user, http } from "../../../utils";
+import { getParam } from "../../../utils/util";
+import GridMenu from './grid-menu'
 export default {
+  components:{
+    GridMenu
+  },
   data() {
     return {
       page_url: {
         login: "/pages/member/login/main",
         setting: "/pages/member/setting/main",
         created_doc: "/pages/created/doc/main"
-      }
+      },
+      web_host: http.web_host(),
+      menu:[]
     };
   },
   computed: {
@@ -90,12 +83,41 @@ export default {
       }
     }
   },
-  mounted() {},
+  mounted() {
+    this.getData();
+  },
   methods: {
     getData() {
       http.get("v1/member-index").then(res => {
+        this.web_host = res.data.web_host;
+        this.menu = res.data.menu;
         user.set_user(res.data.user);
         store.commit("set_user", res.data.user);
+      });
+    },
+
+    grid_list_click(router) {
+      if (user.check_login()) {
+        let url = this.web_host + router;
+        wx.navigateTo({ url: "/pages/web/main?url=" + url });
+      }
+    },
+    upload() {
+      wx.chooseImage({
+        count: 4,
+        sizeType: ["original", "compressed"], 
+        sourceType: ["album", "camera"],
+        success: (res) =>{
+           console.log(res);
+        },
+        fail:err=>{
+            console.log(err);
+            
+        },
+        complete:()=>{
+            console.log('xxxxx');
+            
+        }
       });
     }
   },
@@ -110,7 +132,7 @@ export default {
 .header {
   background: @blue;
   color: white;
-  //box-shadow: 0 1px 6px @blue;
+  box-shadow: 0 1px 6px @blue;
   //border-radius: 0 0 15px 15px;
   overflow: hidden;
   .user-info {
@@ -176,25 +198,11 @@ export default {
   }
 }
 .created-view {
-  height: 30px;
-  background: @blue;
-  position: relative;
-  margin-bottom: 40px;
-  box-sizing: border-box;
-  box-shadow: 0 1px 6px @blue;
-  //border-radius: 0 0 5px 5px;
+  margin-top: 15px;
   .btn-view {
-    width: 150px;
-    height: 40px;
-    background: @blue;
-    border-radius: 20px;
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    margin-left: -75px;
-    box-shadow: 0 1px 6px @blue;
-    overflow: hidden;
+    display: flex;
     .btn {
+      flex: 1;
       color: @blue;
       width: 150px;
       height: 40px;

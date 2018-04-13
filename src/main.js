@@ -13,15 +13,20 @@ export default {
     pages: [
       'pages/index/main', //首页
       //member
-      'pages/member/index/main', //个人中心
+      '^pages/member/index/main', //个人中心
       'pages/member/login/main', //登录
+      'pages/member/scan_login/main', //扫码登录pc端
       'pages/member/setting/main', //设置
       //details
-      'pages/details/doc/main', //文档详情页
+      'pages/details/doc/main', //文档首页
+      'pages/details/doc-page-info/main', //文档详情页
+      'pages/details/doc-menu/main', //文档目录
       //specials
       'pages/specials/mydoc/main', //我的文档
       //created
-      '^pages/created/doc/main'//创建文档
+      'pages/created/doc/main',//创建文档
+      //web
+      'pages/web/main'//浏览器
     ],
     window: {
       backgroundTextStyle: 'light',

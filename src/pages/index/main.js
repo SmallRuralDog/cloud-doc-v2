@@ -7,8 +7,10 @@ export default {
     config : {
         navigationBarTitleText: '云档',
         backgroundColorTop:"#fff",
-        backgroundColorBottom:"#f7f7f7",
+        backgroundColorBottom:"#fff",
         //navigationBarBackgroundColor:"#1a82d2",
-        //navigationBarTextStyle:"white"
+        //navigationBarTextStyle:"white",
+        enablePullDownRefresh:true,
+        backgroundTextStyle:"dark"
     }
 }

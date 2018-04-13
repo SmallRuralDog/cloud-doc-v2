@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './index'
+import App from './web.vue'
 
 const app = new Vue(App)
 app.$mount()
@@ -8,9 +8,7 @@ export default {
         navigationBarTitleText: '',
         backgroundColorTop:"#fff",
         backgroundColorBottom:"#fff",
-        navigationBarBackgroundColor:"#fff",
-        navigationBarTextStyle:"black",
-        enablePullDownRefresh:true,
-        backgroundTextStyle:"dark"
+        navigationBarBackgroundColor:"#ffffff",
+        navigationBarTextStyle:"black"
     }
 }

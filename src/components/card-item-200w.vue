@@ -1,6 +1,6 @@
 <template>
     <div class="rec-item">
-        <a class="item-view" href="/pages/details/doc/main">
+        <a class="item-view" :href="'/pages/details/doc/main?id='+id">
             <img :src="cover" />
             <div class="view-body">
                 <div class="title">{{title}}</div>
@@ -15,7 +15,8 @@ export default {
   props: {
       cover:String,
       title:String,
-      info:String
+      info:String,
+      id:String
   }
 };
 </script>
@@ -26,8 +27,8 @@ export default {
   padding: 5px 15px 15px 0;
   .item-view {
     width: 200px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     box-sizing: border-box;
     img {
@@ -38,7 +39,7 @@ export default {
       position: relative;
       padding: 10px;
       .title {
-        font-size: 13px;
+        font-size: 12px;
         line-height: 23px;
         height: 23px;
         overflow: hidden;
@@ -53,7 +54,7 @@ export default {
         color: @blue;
       }
       .info {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 20px;
         height: 20px;
         overflow: hidden;
