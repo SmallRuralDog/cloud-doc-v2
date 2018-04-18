@@ -11,12 +11,13 @@ export default {
   config : {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
     pages: [
-      'pages/index/main', //首页
+      '^pages/index/main', //首页
       //member
-      '^pages/member/index/main', //个人中心
+      'pages/member/index/main', //个人中心
       'pages/member/login/main', //登录
       'pages/member/scan_login/main', //扫码登录pc端
       'pages/member/setting/main', //设置
+      'pages/member/feedback/main', //反馈
       //details
       'pages/details/doc/main', //文档首页
       'pages/details/doc-page-info/main', //文档详情页
@@ -33,7 +34,8 @@ export default {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: '云档',
       navigationBarTextStyle: 'black',
-      backgroundColor: "#ffffff"
+      backgroundColor: "#ffffff",
+      //navigationStyle:'custom',
     },
     "tabBar": {
       "backgroundColor": "#ffffff",

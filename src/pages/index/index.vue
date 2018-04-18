@@ -1,8 +1,8 @@
 <template>
   <div>
     <block v-if="init">
-      <banner></banner>
-      <grid-menu v-if="false"></grid-menu>
+      <banner :banners="data.banner" v-if="data.banner.length>0"></banner>
+      <grid-menu :menus="data.grid_menu" v-if="data.grid_menu.length>0"></grid-menu>
       <rec-channel :items="data.hot"></rec-channel>
       <class-channel :list="data.class_rec"></class-channel>
       <home-list :list="data.home_list.data"></home-list>
@@ -15,6 +15,7 @@
 </template>
 <script>
 import { http } from "../../utils";
+import NavBar from "../../components/NavBar";
 import Banner from "./banner";
 import GridMenu from "./grid-menu";
 import RecChannel from "./rec-channel";
@@ -24,6 +25,7 @@ import LoadMore from "../../components/load-more";
 import StatusView from "../../components/status-view";
 export default {
   components: {
+    NavBar,
     Banner,
     GridMenu,
     RecChannel,
@@ -39,7 +41,7 @@ export default {
       data: {},
       page: 1,
       page_loading: false,
-      page_error:false,
+      page_error: false
     };
   },
   mounted() {
@@ -51,7 +53,7 @@ export default {
       this.page_loading = true;
       this.getData(this.page + 1);
     },
-    page_reload(){
+    page_reload() {
       if (this.loading) return;
       this.page_loading = true;
       this.page_error = false;
@@ -61,7 +63,7 @@ export default {
       this.status = "loading";
       this.getData();
     },
-    getData(page=1) {
+    getData(page = 1) {
       http
         .get("v1/index", { page: page })
         .then(res => {
@@ -77,7 +79,7 @@ export default {
             this.data.home_list.data = oldData;
             this.data.home_list.meta = res.data.home_list.meta;
           }
-          this.page = res.data.home_list.meta.current_page
+          this.page = res.data.home_list.meta.current_page;
         })
         .catch(err => {
           this.status = "error";
@@ -94,7 +96,7 @@ export default {
 };
 </script>
 <style lang="less">
-
+@import '../../styles/common.less';
 </style>
 
 

@@ -32,7 +32,6 @@
         </div>
       </div>
     </div>
-    <button @click="upload">测试</button>
     <grid-menu :menu="menu"></grid-menu>
   </div>
 </template>
@@ -101,24 +100,6 @@ export default {
         let url = this.web_host + router;
         wx.navigateTo({ url: "/pages/web/main?url=" + url });
       }
-    },
-    upload() {
-      wx.chooseImage({
-        count: 4,
-        sizeType: ["original", "compressed"], 
-        sourceType: ["album", "camera"],
-        success: (res) =>{
-           console.log(res);
-        },
-        fail:err=>{
-            console.log(err);
-            
-        },
-        complete:()=>{
-            console.log('xxxxx');
-            
-        }
-      });
     }
   },
   onPullDownRefresh() {

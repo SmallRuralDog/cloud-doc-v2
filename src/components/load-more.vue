@@ -101,9 +101,10 @@ export default {
   align-items: center;
   padding-top: 20px;
   color: #666;
-  font-size: 14px;
+  font-size: 12px;
   .iconfont{
-    font-size: 80px;
+    margin-bottom: 20px;
+    font-size: 40px;
     color: #dcdcdc;
   }
 }

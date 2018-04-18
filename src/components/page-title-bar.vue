@@ -20,14 +20,31 @@ export default {
 </script>
 
 <style lang="less">
+@title-h:20px;
 .titles {
-  padding: 10px 15px;
+  margin: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   .title {
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
+    height:@title-h;
+    font-weight: bold;
+    padding-left: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    
+  }
+  .title::before{
+    content: " ";
+    height: 15px;
+    position: absolute;
+    border-left: 2px solid #333;
+    top: 2.5px;
+    left: 0;
   }
   .more {
     font-size: 12px;

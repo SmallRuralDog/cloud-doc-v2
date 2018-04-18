@@ -8,8 +8,8 @@ export default {
         navigationBarTitleText: '我的文档',
         //backgroundColorTop:"#1a82d2",
         //backgroundColorBottom:"#f7f7f7",
-        navigationBarBackgroundColor:"#1a82d2",
-        navigationBarTextStyle:"white",
+        navigationBarBackgroundColor:"#ffffff",
+        navigationBarTextStyle:"black",
         enablePullDownRefresh:true,
         backgroundTextStyle:"dark"
     }

@@ -16,6 +16,7 @@
             </div>
         </div>
         <div class="content">{{comment.content}}</div>
+        <div class="re_play" v-if="comment.c_replay.length>0">作者回复：{{comment.c_replay}}</div>
         <div class="footer">
 
         </div>
@@ -31,10 +32,8 @@ export default {
 <style lang="less">
 @import "../styles/common.less";
 .comment-item {
-  margin: 8px 0px;
-  padding: 12px;
-  background: #f7f7f7;
-  border-radius: 8px;
+  padding: 10px 15px;
+  border-bottom: 0.5px solid #f0f0f0;
   .top {
     display: flex;
     .avatar {
@@ -98,6 +97,14 @@ export default {
     font-size: 14px;
     color: #666;
     margin-top: 8px;
+  }
+  .re_play{
+    margin: 10px 0;
+    font-size: 12px;
+    color: #999;
+    background: #f7f7f7;
+    padding: 8px;
+    border-radius: 3px;
   }
 }
 </style>

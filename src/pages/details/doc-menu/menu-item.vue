@@ -48,7 +48,7 @@ export default {
   .label {
     position: relative;
     font-size: 15px;
-    padding: 10px;
+    padding: 10px 15px;
     overflow: hidden;
     color: #333;
     display: flex;
