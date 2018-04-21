@@ -56,6 +56,7 @@ export default {
   mounted() {
     this.id = this.$root.$mp.query.id;
     this.getData();
+    wx.hideShareMenu()
   },
   methods: {
     re_load() {
