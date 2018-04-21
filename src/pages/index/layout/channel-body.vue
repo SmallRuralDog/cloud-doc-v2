@@ -22,7 +22,7 @@ export default {
     list: Array
   },
   mounted(){
-    console.log(this.list);
+
     
   },
   computed: {

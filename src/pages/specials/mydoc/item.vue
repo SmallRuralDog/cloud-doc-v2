@@ -1,5 +1,5 @@
 <template>
-  <a class="item" :href="'/pages/details/doc/main?id='+data.item.doc.id">
+  <a class="item" >
     <div class="flex-r">
       <div class="cover">
         <img :src="data.item.doc.cover.small_url" />
@@ -22,11 +22,16 @@
             <span>{{data.time}}</span>
           </div>
         </div>
+        <div class="btns">
+          <button size="mini" @click="go_page(data.item.link)">继续阅读</button>
+          <button size="mini" @click="go_doc(data.item.doc.id)">查看文档</button>
+        </div>
       </div>
     </div>
   </a>
 </template>
 <script>
+import {navigate} from '../../../utils'
 export default {
   props: {
     data: Object
@@ -37,12 +42,20 @@ export default {
         this.data.item.doc.listened_count / this.data.item.doc.page_count * 100
       );
     }
+  },
+  methods:{
+    go_page(link){
+      navigate.open_doc_page_info(link)
+    },
+    go_doc(id){
+      navigate.open_doc_index(id)
+    }
   }
 };
 </script>
 <style lang="less">
 @import "../../../styles/common.less";
-@cover-size: 60px;
+@cover-size: 90px;
 .item {
   overflow: hidden;
   position: relative;
@@ -85,7 +98,6 @@ export default {
         background: #dcdcdc;
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 0 2px @blue;
         .pn {
           border-radius: 10px;
           height: 4px;
@@ -114,6 +126,14 @@ export default {
           margin-right: 15px;
           flex-shrink: 1;
         }
+      }
+    }
+    .btns{
+      margin-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      button{
+        margin: 0;
       }
     }
   }

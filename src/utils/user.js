@@ -4,7 +4,7 @@ const USER_NAME = 'user-data'
 const CODE_NAME = 'user-code'
 export default {
     get_code() {
-        return new Promise((resolve, reject) => {
+        /*return new Promise((resolve, reject) => {
             wx.checkSession({
                 success: () => {
                     if (wx.getStorageSync(CODE_NAME)) {
@@ -18,6 +18,18 @@ export default {
                 }
             })
 
+        })*/
+        return new Promise((resolve, reject) => {
+            wx.login({
+                success: (res) => {
+                    if (res.code) {
+                        //this.set_code(res.code)
+                        resolve(res.code)
+                    } else {
+                        reject(false)
+                    }
+                }
+            })
         })
     },
     wx_login() {
@@ -25,7 +37,7 @@ export default {
             wx.login({
                 success: (res) => {
                     if (res.code) {
-                        this.set_code(res.code)
+                        //this.set_code(res.code)
                         resolve(res.code)
                     } else {
                         reject(false)

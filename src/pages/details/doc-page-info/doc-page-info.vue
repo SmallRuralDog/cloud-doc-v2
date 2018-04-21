@@ -22,6 +22,7 @@ export default {
     console.log(url);
     this.src = url;
     this.init = true
+    wx.hideShareMenu()
   }
 };
 </script>

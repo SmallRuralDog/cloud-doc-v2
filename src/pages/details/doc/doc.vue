@@ -99,6 +99,7 @@ export default {
       status: "loading",
       doc: {},
       id: "",
+      share_id:"",
       scrollTop: 0,
       pay_loading: false,
       show_add_comment: false,
@@ -131,7 +132,8 @@ export default {
     this.status = "loading";
   },
   mounted() {
-    this.id = this.$root.$mp.query.id || "7BdOZavNzv4YEWoz";
+    this.id = this.$root.$mp.query.id || "";
+    this.share_id = this.$root.$mp.query.share || "";
     this.getData();
   },
   methods: {
@@ -210,7 +212,7 @@ export default {
       if (user.check_login()) {
         this.pay_loading = true;
         http
-          .post("v1/buy", { id: this.doc.id, type: "doc" })
+          .post("v1/buy", { id: this.doc.id, type: "doc",share_id:this.share_id })
           .then(res => {
             this.pay_loading = false;
             wx.requestPayment({
@@ -253,8 +255,9 @@ export default {
   },
   onShareAppMessage(){
     return{
-      title:this.doc.title,
-      imageUrl:this.doc.cover.share_url
+      title:this.doc.share_data.title,
+      imageUrl:this.doc.share_data.image,
+      path:this.doc.share_data.xcx_url,
     }
   }
 };
