@@ -11,7 +11,7 @@ export default {
   config : {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
     pages: [
-      '^pages/index/main', //首页
+      'pages/index/main', //首页
       //member
       'pages/member/index/main', //个人中心
       'pages/member/login/main', //登录
@@ -26,6 +26,9 @@ export default {
       'pages/specials/mydoc/main', //我的文档
       //created
       'pages/created/doc/main',//创建文档
+      'pages/created/edit-doc/main',//编辑文档
+      '^pages/created/edit-articles/main',//编辑文集
+      'pages/created/edit-articles-text/main',//编辑文集文字
       //web
       'pages/web/main'//浏览器
     ],

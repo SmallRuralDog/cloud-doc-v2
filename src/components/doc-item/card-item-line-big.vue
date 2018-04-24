@@ -19,7 +19,6 @@
                     <span>{{number}}人在看</span>
                 </div>
             </div>
-            
         </div>
     </div>
 </template>

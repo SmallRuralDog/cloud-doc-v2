@@ -20,8 +20,8 @@ export default {
     this.url = this.$root.$mp.query.url;
     this.src = this.url + "?&token=" + user.get_token()//+'#wechat_redirect';
     console.log(this.src);
-
     this.init = true;
+    wx.hideShareMenu()
   }
 };
 </script>

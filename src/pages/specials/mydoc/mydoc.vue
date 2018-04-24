@@ -60,7 +60,7 @@ export default {
     load_more() {
       if (this.loading) return;
       this.page_loading = true;
-      this.get_comment(this.page + 1);
+      this.getData(this.page + 1);
     },
     re_load() {
       this.status = "loading";
@@ -70,7 +70,7 @@ export default {
       if (this.loading) return;
       this.page_loading = true;
       this.page_error = false;
-      this.get_comment(this.page + 1);
+      this.getData(this.page + 1);
     },
     getData(page = 1) {
       http

@@ -1,20 +1,17 @@
 <template>
     <div>
-        <div class="from" v-if="false">
+        <div class="from">
             <div class="from-item">
-                <div class="label">名称</div>
                 <div class="input">
                     <input placeholder="请输入文档名称" :maxlength="20" />
                 </div>
             </div>
             <div class="from-item">
-                <div class="label">简介</div>
                 <div class="input">
                     <textarea placeholder="请输入文档简介" :maxlength="60" />
                 </div>
             </div>
             <div class="from-item">
-                <div class="label">分类</div>
                 <div class="input">
                     <picker mode="multiSelector" :range="multiArray">
                         请选择
@@ -22,7 +19,6 @@
                 </div>
             </div>
         </div>
-        <web-view src="http://localhost:8081/#/"></web-view>
     </div>
 </template>
 <script>
@@ -40,11 +36,7 @@ export default {
 </script>
 <style lang="less">
 .from {
-  border-radius: 5px;
-  overflow: hidden;
-  padding: 10px;
-  margin: 15px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+
   .from-item {
     display: flex;
     align-items: center;

@@ -1,7 +1,7 @@
 import user from './user'
 import toast from './toast'
-const HOST = 'https://s.yundocs.cn/api/'
-//const HOST = 'http://192.168.10.54:88/api/'
+//const HOST = 'https://s.yundocs.cn/api/'
+const HOST = 'http://192.168.10.54:88/api/'
 const WEB_HOST = 'http://192.168.10.54/r/'
 const SystemInfo = wx.getSystemInfoSync()
 const header = {
@@ -85,7 +85,7 @@ export default {
                     } else { //非200状态
                         switch (res.code) {
                             case 400: //业务错误
-                                toast.showToast(res.message);
+                                //toast.showToast(res.message);
                                 break;
                             case 401: //授权失败
                                 toast.showToast(res.message);
