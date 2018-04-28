@@ -28,7 +28,7 @@ export default {
     user_name: String,
     category_name: String,
     number: String,
-    time: String
+    time: String,
   }
 };
 </script>

@@ -14,11 +14,12 @@ export default {
     cover: String,
     title: String,
     info: String,
-    id: String
+    id: String,
+    mode:String
   },
   methods: {
     item_click() {
-      wx.navigateTo({ url: "/pages/details/doc/main?id=" + this.id });
+      wx.navigateTo({ url: "/pages/details/"+this.mode+"/main?id=" + this.id });
     }
   }
 };

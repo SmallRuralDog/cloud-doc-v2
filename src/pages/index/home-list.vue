@@ -3,7 +3,7 @@
         <page-title-bar title="猜你喜欢" :more="false" />
         <div class="home-list">
             <block  v-for="item in list" :key="item.id">
-            <a class="list-item" :href="'/pages/details/doc/main?id='+item.id">
+            <a class="list-item" :href="'/pages/details/'+item.mode+'/main?id='+item.id">
                 <line-item :time="item.last_update?item.last_update.updated_format:item.time" :category_name="item.category_name" :number="item.listened_count" :cover="item.cover.small_url" :title="item.title" :abstract="item.abstract" :user_name="item.user.name"/>
             </a>
             </block>

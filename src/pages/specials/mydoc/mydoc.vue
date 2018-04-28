@@ -76,7 +76,7 @@ export default {
       http
         .get("v1/user-listened", { page: page })
         .then(res => {
-          if (page == 1) {
+          if (page === 1) {
             if (res.data.data.length <= 0) {
               this.status = "no-data";
               return;

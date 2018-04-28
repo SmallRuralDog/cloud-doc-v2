@@ -17,8 +17,8 @@ export default {
     this.init = false;
   },
   mounted() {
-    this.url = this.$root.$mp.query.url;
-    this.src = this.url + "?&token=" + user.get_token()//+'#wechat_redirect';
+    this.url = decodeURIComponent(this.$root.$mp.query.url);
+    this.src = this.url + "&token=" + user.get_token()
     console.log(this.src);
     this.init = true;
     wx.hideShareMenu()

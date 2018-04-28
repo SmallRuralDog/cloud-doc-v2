@@ -8,7 +8,7 @@
       <scroll-view scroll-x>
         <div class="rec-list">
           <block v-for="(item,index) in items" :key="index">
-            <card-item :id="item.id" :cover="item.cover.small_url" :title="item.category_name" :info="item.title" />
+            <card-item :id="item.id" :mode="item.mode" :cover="item.cover.small_url" :title="item.category_name" :info="item.title" />
           </block>
         </div>
       </scroll-view>

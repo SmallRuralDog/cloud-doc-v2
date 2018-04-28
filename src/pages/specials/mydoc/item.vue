@@ -134,6 +134,10 @@ export default {
       justify-content: space-between;
       button{
         margin: 0;
+        color: #666;
+      }
+      button:after{
+        border: none;
       }
     }
   }

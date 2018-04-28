@@ -1,9 +1,9 @@
 import user from './user'
 import toast from './toast'
 const HOST = 'https://s.yundocs.cn/api/'
-//const HOST = 'http://192.168.10.54:88/api/'
-const WEB_HOST = 'http://192.168.10.54/r/'
-const SystemInfo = wx.getSystemInfoSync()
+//const HOST = 'http://192.168.10.54:88/api/';
+const WEB_HOST = 'http://192.168.10.54/r/';
+const SystemInfo = wx.getSystemInfoSync();
 const header = {
     'Accept': 'application/json',
     'content-type': 'application/json',

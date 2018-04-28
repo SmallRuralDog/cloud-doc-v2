@@ -1,7 +1,8 @@
 <template>
   <div class="edit-articles-text">
     <div class="textarea">
-      <textarea :maxlength="5000" v-model="text" :focus="true" @confirm="confirm" ></textarea>
+      <textarea v-model.lazy="text" :adjust-position="false" :auto-height="false" :maxlength="5000" :focus="true"
+                @confirm="confirm"></textarea>
     </div>
 
     <div style="display: flex;justify-content: space-between; padding: 0 15px; align-items: center;">
@@ -26,23 +27,28 @@
     },
     mounted() {
       this.index = this.$root.$mp.query.index;
-      this.text = this.content[this.index].text || "";
-    },
-    watch: {
-      text(val, old) {
-        store.commit("set_text", { index: this.index, text: val });
-      }
+      this.text = this.content[this.index].text.slice() || "";
     },
     computed: {
       content() {
         return store.state.content;
       }
     },
+    watch: {
+      text(val) {
+        store.commit("set_text", { index: this.index, text:val});
+      }
+    },
     methods: {
-      confirm(event) {
-        wx.navigateBack();
+      confirm() {
+        this.set_text()
       },
-      clear(){
+      set_text() {
+        setTimeout(() => {
+          wx.navigateBack();
+        }, 500);
+      },
+      clear() {
         wx.showModal({
           title: "提示",
           content: "你确定要清空文本吗？",
@@ -58,6 +64,7 @@
 </script>
 <style lang="less">
   .edit-articles-text {
+    padding-bottom: 30px;
     .textarea {
       display: flex;
       margin: 15px;

@@ -255,11 +255,11 @@
         //this.$set(this.content, index, item);
         this.hide_btn();
         //上传图片
-        if (type == "image" && !data.upload) {
+        if (type === "image" && !data.upload) {
           this.upload_image(path, index);
         }
         //上传视频
-        if (type == "video" && !data.upload) {
+        if (type === "video" && !data.upload) {
           this.upload_video(path, index);
         }
       },
@@ -314,8 +314,8 @@
             mode: "articles"
           })
           .then(res => {
-            self_item.data.path = res.data.path;
-            self_item.data.url = res.data.url;
+            self_item.path = res.data.path;
+            self_item.url = res.data.url;
             self_item.data.upload = true;
             self_item.data.status = "success";
             self_item.data.pic = res.data.pic;

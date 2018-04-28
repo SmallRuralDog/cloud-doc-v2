@@ -1,11 +1,11 @@
 <template>
   <div>
-    <a :href="'/pages/details/doc/main?id='+item.id" class="big-view" v-if="item">
+    <a :href="'/pages/details/'+item.mode+'/main?id='+item.id" class="big-view" v-if="item">
       <line-item-big :tags="item.tags" :time="item.last_update?item.last_update.updated_format:item.time" :category_name="item.category_name" :number="item.listened_count" :cover="item.cover.small_url" :title="item.title" :abstract="item.abstract" :user_name="item.user.name" />
     </a>
     <div class="class-list" v-if="next_list">
       <block v-for="(doc,index2) in next_list" :key="index2">
-        <card-item :id="doc.id" :cover="doc.cover.small_url" :title="doc.tags[0].name" :info="doc.title" />
+        <card-item :id="doc.id" :mode="doc.mode" :cover="doc.cover.small_url" :title="doc.tags[0].name" :info="doc.title" />
       </block>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
   },
   mounted(){
 
-    
+
   },
   computed: {
     item() {

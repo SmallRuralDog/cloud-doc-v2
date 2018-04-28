@@ -4,7 +4,7 @@
          <input class="name-input"  maxlength="10" v-model="name" placeholder="最大输入长度8" />
       </div>
         <div class="flex-r pd-15">
-            
+
             <textarea  :value="intro" v-model="intro" class="intro-input" placeholder="填写你的个性简介，15字以内" />
         </div>
         <div class="pd-15">

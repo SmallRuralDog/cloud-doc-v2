@@ -21,7 +21,7 @@ export default {
     const url = this.link + "&token=" + user.get_token();
     console.log(url);
     this.src = url;
-    this.init = true
+    this.init = true;
     wx.hideShareMenu()
   }
 };

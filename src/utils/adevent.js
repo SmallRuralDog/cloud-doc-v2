@@ -19,6 +19,7 @@ export default {
             wx.scanCode({
                 onlyFromCamera: true,
                 success: res => {
+                  console.log(res)
                     let key = getParam(res.result, "key");
                     let action = getParam(res.result, "action");
                     toast.showLoading()

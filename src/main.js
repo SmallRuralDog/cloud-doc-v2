@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import Http from './utils/http'
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 App.mpType = 'app'
 const app = new Vue(App)
 app.$mount()
@@ -19,9 +19,12 @@ export default {
       'pages/member/setting/main', //设置
       'pages/member/feedback/main', //反馈
       //details
-      'pages/details/doc/main', //文档首页
+      'pages/details/docs/main', //文档首页
+      'pages/details/articles/main', //文集首页
       'pages/details/doc-page-info/main', //文档详情页
       'pages/details/doc-menu/main', //文档目录
+      'pages/details/article-menu/main', //文集目录
+      'pages/details/article-node-page/main', //节点模型文章详情页
       //specials
       'pages/specials/mydoc/main', //我的文档
       //created
