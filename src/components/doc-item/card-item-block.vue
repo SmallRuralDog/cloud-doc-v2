@@ -1,5 +1,5 @@
 <template>
-    <div class="rec-item" @click="item_click()">
+    <div class="rec-item-block" @click="item_click()">
             <img class="box-sd" :src="cover" />
             <div class="view-body">
               <div class="info">{{info}}</div>
@@ -26,7 +26,7 @@ export default {
 </script>
 <style lang="less">
 @item-w: 105px;
-.rec-item {
+.rec-item-block {
   flex-shrink: 0;
   width: @item-w;
   padding: 7.5px;

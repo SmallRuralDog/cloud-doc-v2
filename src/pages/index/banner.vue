@@ -1,5 +1,5 @@
 <template>
-  <swiper previous-margin="20px" next-margin="20px" :indicator-dots="false" :autoplay="true" :circular="true">
+  <swiper previous-margin="0px" next-margin="0px" :indicator-dots="false" :autoplay="true" :circular="true">
     <block v-for="(item,index) in banners" :key="index">
       <swiper-item class="">
         <div class="swiper-item-box">
@@ -36,17 +36,17 @@ swiper {
   height: @swiper-w/(768/346);
 }
 .swiper-item-box {
-  padding: 7.5px;
+  padding:5px 15px 30px 15px;
 }
 .swiper-item-link {
-  width: @swiper-w - 55;
-  height: (@swiper-w - 55)/(768/346);
-  box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+  width: @swiper-w - 30;
+  height: (@swiper-w - 30)/(768/346);
+  box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.15);
   border-radius: 2px;
   overflow: hidden;
 }
 .swiper-item-image {
-  width: @swiper-w - 55;
-  height: (@swiper-w - 55)/(768/346);
+  width: @swiper-w - 30;
+  height: (@swiper-w - 30)/(768/346);
 }
 </style>

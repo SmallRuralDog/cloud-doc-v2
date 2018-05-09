@@ -44,6 +44,7 @@ export default {
   .img_book {
     width: @cover-size;
     height: @cover-size/0.75;
+    border-radius: 2px;
     box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
   }
   .book_detial {

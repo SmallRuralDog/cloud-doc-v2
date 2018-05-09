@@ -14,19 +14,19 @@
         </div>
       </a>
       <div class="grid-list" v-if="token">
-        <div class="grid-item" @click="grid_list_click('subscribe-doc')">
+        <div class="grid-item" @click="grid_list_click('subscribe-doc%3fv%3dt')">
           <p class="number">{{user.subscribe_doc || 0}}</p>
           <p class="name">收藏</p>
         </div>
-        <div v-if="false" class="grid-item" @click="grid_list_click('comment')">
+        <div v-if="false" class="grid-item" @click="grid_list_click('comment%3fv%3dt')">
           <p class="number">{{user.comment_num || 0}}</p>
           <p class="name">评论</p>
         </div>
-        <div class="grid-item" @click="grid_list_click('follow')">
+        <div class="grid-item" @click="grid_list_click('follow%3fv%3dt')">
           <p class="number">{{user.follow || 0}}</p>
           <p class="name">关注</p>
         </div>
-        <div class="grid-item" @click="grid_list_click('fans')">
+        <div class="grid-item" @click="grid_list_click('fans%3fv%3dt')">
           <p class="number">{{user.fans || 0}}</p>
           <p class="name">粉丝</p>
         </div>

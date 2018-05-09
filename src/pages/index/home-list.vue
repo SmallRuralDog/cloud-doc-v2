@@ -1,6 +1,6 @@
 <template>
     <div>
-        <page-title-bar title="猜你喜欢" :more="false" />
+        <page-title-bar title="最近更新" :more="false" />
         <div class="home-list">
             <block  v-for="item in list" :key="item.id">
             <a class="list-item" :href="'/pages/details/'+item.mode+'/main?id='+item.id">

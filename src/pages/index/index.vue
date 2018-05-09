@@ -1,6 +1,7 @@
 <template>
   <div>
     <block v-if="init">
+      <search-block/>
       <banner :banners="data.banner" v-if="data.banner.length>0"></banner>
       <grid-menu :menus="data.grid_menu" v-if="data.grid_menu.length>0"></grid-menu>
       <rec-channel :items="data.hot"></rec-channel>
@@ -16,6 +17,7 @@
 </template>
 <script>
   import { http, navigate } from "../../utils";
+  import SearchBlock from './search-block';
   import NavBar from "../../components/NavBar";
   import Banner from "./banner";
   import GridMenu from "./grid-menu";
@@ -27,6 +29,7 @@
 
   export default {
     components: {
+      SearchBlock,
       NavBar,
       Banner,
       GridMenu,

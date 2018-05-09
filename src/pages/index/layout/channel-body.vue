@@ -1,9 +1,11 @@
 <template>
   <div>
+    <block v-for="(item,index2) in list" :key="index2">
     <a :href="'/pages/details/'+item.mode+'/main?id='+item.id" class="big-view" v-if="item">
       <line-item-big :tags="item.tags" :time="item.last_update?item.last_update.updated_format:item.time" :category_name="item.category_name" :number="item.listened_count" :cover="item.cover.small_url" :title="item.title" :abstract="item.abstract" :user_name="item.user.name" />
     </a>
-    <div class="class-list" v-if="next_list">
+    </block>
+    <div class="class-list" v-if="false">
       <block v-for="(doc,index2) in next_list" :key="index2">
         <card-item :id="doc.id" :mode="doc.mode" :cover="doc.cover.small_url" :title="doc.tags[0].name" :info="doc.title" />
       </block>
@@ -26,7 +28,7 @@ export default {
 
   },
   computed: {
-    item() {
+    /*item() {
       try {
         return this.list.shift();
       } catch (error) {
@@ -38,7 +40,7 @@ export default {
         return index >= 0;
       });
       return next_list || []
-    }
+    }*/
   }
 };
 </script>
