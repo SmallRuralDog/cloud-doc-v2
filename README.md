@@ -15,3 +15,9 @@
 - 文章模块
 
 新版UI将跟随潮流，使用卡片式布局
+
+### 关注我的头条号
+
+![](http://makefriends.bs2dl.yy.com/Coder.jpeg)
+
+头条扫一扫  干货随便找
